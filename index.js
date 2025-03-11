@@ -1,5 +1,4 @@
-const selectUsuarios=document.getElementById('selectUsuarios');
-
+const btnMostrarPosts=document.getElementById('btnMostrarPosts');
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(usuarios =>{
@@ -9,29 +8,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
         })
     })
 
-// selectUsuarios.addEventListener('change',()=>{
-//     let id=selectUsuarios.value;
-//     const divPosts=document.getElementById('divPosts');
-//     divPosts.innerHTML="";
-//     fetch('https://jsonplaceholder.typicode.com/posts')
-//     .then(response => response.json())
-//     .then(posts=>{
-//         posts.forEach(post=>{
-//             if(post.userId==id){
-//                 divPosts.innerHTML+=`
-//                 <div id="divPost${post.id}">
-//                     <h3 id="titlePost${post.id}">${post.title}</h3>
-//                     <p id="bodyPost${post.id}" >${post.body}</p>
-//                     <button onclick="verComentarios(post.id)"> Ver comentarios</button>
-//                     <button onclick="ocultarComentarios(post.id)"> Ocultar comentarios</button>
-//                     <div id="divComentarios${post.id}"></div>
-//                 </div>
-//                 `;
-//             }
-//         })
-//     })
-// })
-selectUsuarios.addEventListener('change',()=>{
+
+
+btnMostrarPosts.addEventListener('click',()=>{
+    const selectUsuarios=document.getElementById('selectUsuarios');
     let id=selectUsuarios.value;
     const divPosts=document.getElementById('divPosts');
     divPosts.innerHTML="";
@@ -52,6 +32,8 @@ selectUsuarios.addEventListener('change',()=>{
             `;
         })
     })
+    const btnOcultarPosts=document.getElementById('btnOcultarPosts');
+    btnOcultarPosts.classList.remove('visibilidad');
 })
 
 function verComentarios(idPost){
@@ -83,3 +65,16 @@ function ocultarComentarios(idPost){
     const btnVerComentarios=document.getElementById(`btnVerComentarios${idPost}`);
     btnVerComentarios.classList.toggle('visibilidad');
 }
+const btnOcultarPosts=document.getElementById('btnOcultarPosts');
+
+btnOcultarPosts.addEventListener('click',()=>{
+    const divPosts=document.getElementById('divPosts');
+    divPosts.innerHTML="";
+    btnOcultarPosts.classList.toggle('visibilidad');
+})
+const selectUsuarios=document.getElementById("selectUsuarios");
+    selectUsuarios.addEventListener("change",()=>{
+        btnMostrarPosts.classList.remove("visibilidad");
+        btnOcultarPosts.classList.add("visibilidad");
+        document.getElementById("divPosts").innerHTML="";
+    })

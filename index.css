@@ -67,3 +67,17 @@ body{
     padding-top:5px;
     color:aliceblue;
 }
+.btnPosts{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #466DEB;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#divBotones{
+    display: flex;
+    justify-content:center;
+    margin-top: 10px;
+}
