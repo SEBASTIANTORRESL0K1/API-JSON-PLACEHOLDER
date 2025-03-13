@@ -49,10 +49,11 @@ body{
 }
 .divBotones{
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-around;
     margin-top: 10px;
     margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .divComentarios{
     margin:10px;
@@ -75,6 +76,7 @@ body{
     cursor: pointer;
     margin-left: 10px;
     margin-right: 10px;
+
 }
 #divBotones{
     display: flex;
